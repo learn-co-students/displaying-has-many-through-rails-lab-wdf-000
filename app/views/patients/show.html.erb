@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @patient.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @patient.age %>
+</p>
+
+<% @patient.appointments.each do |appointment| %>
+<%= link_to "#{appointment.doctor.name} - #{appointment.appointment_datetime.strftime("%B %d, %Y at %H:%M")}", doctor_path(appointment.doctor) %>
+<% end %>
+
