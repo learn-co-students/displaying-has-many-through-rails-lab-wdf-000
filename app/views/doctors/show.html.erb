@@ -1,0 +1,23 @@
+<h1>Personal page of <%= @doctor.name %> </h1>
+<h3>Department of: <%= @doctor.department%></h3>
+
+<hr>
+
+<table style="border: 1px solid black">
+  <thead>
+    <tr>
+      <th style="border-bottom: 1px solid black">Patient Name</th>
+      <th style="border-bottom: 1px solid black">Appointment Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @doctor.patients.each do |patient| %>
+      <% patient.appointments.each do |appointment| %>
+        <tr>
+          <td><%= link_to patient.name, patient_path(patient) %></td>
+          <td><%= appointment.appointment_datetime.strftime("%B %e, %Y at %H:%M") %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
