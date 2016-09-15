@@ -1,0 +1,11 @@
+
+<div style="width: 80%; margin: 0 auto;">
+  <h1>Appointment for: <%= @appointment.appointment_datetime.strftime("%B %e, %Y at %H:%M") %></h1>
+
+  <hr>
+
+  <div style="display: flex; justify-content: space-between;">
+    <h2>Doctor: <%= link_to @appointment.doctor.name, doctor_path(@appointment.doctor) %></h2>
+    <h2>Patient: <%= link_to @appointment.patient.name, patient_path(@appointment.patient) %></h2>
+  </div>
+</div>
