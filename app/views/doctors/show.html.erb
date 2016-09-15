@@ -1,21 +1,24 @@
-<h1>Personal page of <%= @doctor.name %> </h1>
-<h3>Department of: <%= @doctor.department%></h3>
 
-<hr>
+<div style="width: 80%; margin: 0 auto;">
+  <h1>Personal page of <%= @doctor.name %> </h1>
+  <h3>Department of: <%= @doctor.department%></h3>
 
-<table style="width: 50%; text-align: center; border: 1px solid black">
-  <thead>
-    <tr>
-      <th style="border-bottom: 1px solid black">Patient Name</th>
-      <th style="border-bottom: 1px solid black">Appointment Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @doctor.appointments.each do |appointment| %>
+  <hr>
+
+  <table style="width: 50%; text-align: center; border: 1px solid black">
+    <thead>
       <tr>
-        <td><%= link_to appointment.patient.name, patient_path(appointment.patient) %></td>
-        <td><%= appointment.appointment_datetime.strftime("%B %e, %Y at %H:%M") %></td>
+        <th style="border-bottom: 1px solid black">Patient Name</th>
+        <th style="border-bottom: 1px solid black">Appointment Time</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @doctor.appointments.each do |appointment| %>
+        <tr>
+          <td><%= link_to appointment.patient.name, patient_path(appointment.patient) %></td>
+          <td><%= appointment.appointment_datetime.strftime("%B %e, %Y at %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
