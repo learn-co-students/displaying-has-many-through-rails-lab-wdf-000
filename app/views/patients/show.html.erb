@@ -1,0 +1,22 @@
+<div style="width: 80%; margin: 0 auto;">
+  <h1>Patient name: <%= @patient.name %> </h1>
+
+  <hr>
+
+  <table style="width: 50%; text-align: center; border: 1px solid black">
+    <thead>
+      <tr>
+        <th style="border-bottom: 1px solid black">Doctor Name</th>
+        <th style="border-bottom: 1px solid black">Appointment Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @patient.appointments.each do |appointment| %>
+        <tr>
+          <td><%= link_to appointment.doctor.name, doctor_path(appointment.doctor) %></td>
+          <td><%= appointment.appointment_datetime.strftime("%B %e, %Y at %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
