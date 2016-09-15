@@ -8,7 +8,7 @@
       <li>
         <%= link_to doctor.name, doctor_path(doctor) %>
         <ul>
-          <li><%= "Total patients: " + doctor.patients.count.to_s %></li>
+          <li><%= "Total patients: " + doctor.total_patients %></li>
         </ul>
       </li>
     <% end %>

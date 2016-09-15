@@ -15,8 +15,8 @@
     <tbody>
       <% @doctor.appointments.each do |appointment| %>
         <tr>
-          <td><%= link_to appointment.patient.name, patient_path(appointment.patient) %></td>
-          <td><%= appointment.appointment_datetime.strftime("%B %e, %Y at %H:%M") %></td>
+          <td><%= link_to appointment.patient_name, patient_path(appointment.patient) %></td>
+          <td><%= appointment.date_time %></td>
         </tr>
       <% end %>
     </tbody>
