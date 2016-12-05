@@ -1,0 +1,11 @@
+
+All of your patient appointments
+<% @doctor.appointments.each do |app| %>
+<% arr = app.appointment_datetime.to_formatted_s(:long).split(" ") %>
+<% var = arr.delete(arr.last) %>
+<% arr << "at" %>
+<% arr << var %>
+<% result = arr.join(" ") %>
+<%= result %> is an appointment time
+<%= link_to app.patient.name, patient_path(app.patient) %> Is the corresponding patient for this appointment time
+<%end%>
