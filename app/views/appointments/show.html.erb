@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Appointment datetime:</strong>
+  <%= @appointment.appointment_datetime %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <% patient = Patient.find_by(id: @appointment.patient_id) %>
+  <%= link_to "#{patient.name}", patient %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <% doctor = Doctor.find_by(id: @appointment.doctor_id) %>
+  <%= link_to "#{doctor.name}", doctor %>
+</p>
+
